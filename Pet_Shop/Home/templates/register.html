@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .password-instructions {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #777; /* Color for password instructions */
+    }
+
+    /* Style for labels */
+    label {
+        font-weight: bold;
+    }
+
+    /* Style for input fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* Style for the Register button */
+    button.btn-info {
+        background-color: #17a2b8;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button.btn-info:hover {
+        background-color: #117a8b; /* Hover color */
+    }
+
+    /* Style for the "Sign In Here" link */
+    .text-muted a {
+        text-decoration: none;
+        color: #17a2b8; /* Link color */
+    }
+
+    .text-muted a:hover {
+        color: #117a8b; /* Hover color for the link */
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Sign Up</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="{{ form.username.id_for_label }}">Username:</label>
+                            {{ form.username }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Email:</label>
+                            {{ form.email }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.password1.id_for_label }}">Password:</label>
+                            {{ form.password1 }}
+                            <small class="form-text text-muted password-instructions">
+                                Your password should be at least 8 characters long and include a mix of letters, numbers, and symbols.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+                            {{ form.password2 }}
+                        </div>
+
+                        <button type="submit" class="btn btn-info btn-block">Register</button>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <small class="text-muted">Already Have an Account? <a href="{% url 'login' %}" class="text-info">Sign In Here</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

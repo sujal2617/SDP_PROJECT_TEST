@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  /* Style for card container */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Make cards take up the full viewport height */
+  }
+
+  /* Style for individual card */
+  .card {
+    width: 300px; /* Adjust the card width as needed */
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  /* Style for card images */
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Style for card titles */
+  .card h5 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+  }
+
+  /* Style for card text */
+  .card p {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  /* Style for card links */
+  .card a {
+    text-decoration: none;
+    background-color: #26a5d3;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .card a:hover {
+    background-color: #1d8ea9;
+  }
+</style>
+
+<div class="container-fluid px-3 py-3">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card-container">
+            <div class="card no-hover">
+                <img src="{% static 'Home/images/dog.jpg' %}" class="card-img-top" alt="Dog">
+                <h5 class="card-title">Dog</h5>
+                <p class="card-text">Dogs are loyal and affectionate companions, known for their diverse breeds and roles as both working animals and beloved pets.</p>
+                <a class="btn btn-primary" href="{% url 'Dogs' %}">Click Here</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card-container">
+            <div class="card no-hover">
+                <img src="{% static 'Home/images/cat.jpg' %}" class="card-img-top" alt="Cat">
+                <h5 class="card-title">Cat</h5>
+                <p class="card-text">Cats are independent and graceful creatures, often cherished for their playful personalities and soothing presence.</p>
+                <a href="{% url 'Cat' %}" class="btn btn-primary">Click Here</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card-container">
+            <div class="card no-hover">
+                <img src="{% static 'Home/images/rabbit.jpg' %}" class="card-img-top" alt="Rabbit">
+                <h5 class="card-title">Rabbit</h5>
+                <p class="card-text">Rabbits are gentle, herbivorous animals known for their soft fur and distinctive long ears, often kept as pets or used in various forms of animal agriculture.</p>
+                <a href="{% url 'Rabbit' %}" class="btn btn-primary">Click Here</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

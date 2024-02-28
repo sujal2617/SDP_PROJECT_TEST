@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /* Style for the container */
+       .pagination-container {
+           display: flex;
+           justify-content: center;
+            margin-bottom: 20px;
+       }
+
+       /* Style for the pagination section */
+       .pagination {
+           text-align: center;
+           margin-top: 20px;
+       }
+
+       .pagination a {
+           margin: 0 5px;
+           text-decoration: none;
+           color: #333;
+           padding: 5px 10px;
+           border: 1px solid #333;
+           border-radius: 5px;
+       }
+
+       .pagination a.current-page {
+           background-color: #333;
+           color: #fff;
+       }
+       .card-container {
+           position: relative;
+           overflow: hidden;
+           width: 100%;
+           transition: transform 0.3s ease;
+       }
+
+       .card {
+           position: relative;
+           overflow: hidden;
+           transition: transform 0.3s ease;
+           border: 1px solid #ddd;
+           border-radius: 5px;
+       }
+       .card img {
+           max-width: 1500px; /* Set the maximum width you want */
+           max-height: 600px; /* Set the maximum height you want */
+           width: auto;
+           height: auto;
+           transition: transform 0.3s ease;
+       }
+
+       .card:hover {
+           transform: translateY(-10px);
+           box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+       }
+
+       .card:hover img {
+           transform: scale(1.1); /* Enlarge the image on hover */
+       }
+
+       .card-info {
+           position: absolute;
+           bottom: 0;
+           left: 0;
+           width: 100%;
+           background-color: rgba(0, 0, 0, 0.7);
+           color: #fff;
+           padding: 10px;
+           transform: translateY(100%);
+           transition: transform 0.3s ease;
+           opacity: 0; /* Initially hidden */
+       }
+
+       .card:hover .card-info {
+           transform: translateY(0);
+           opacity: 1; /* Show the info on hover */
+       }
+
+       /* Style for the name below the card */
+       .card-name {
+           background-color: rgba(0, 0, 0, 0.7);
+           color: #fff;
+           padding: 5px;
+           text-align: center;
+       }
+</style>
+
+<div class="container-fluid px-3 py-3 justify-content-center align-items-center">
+    <div class="row">
+        {% for dog in prop %}
+        <div class="col-md-3 mb-3">
+            <!-- Your card structure (already provided) -->
+            <div class="card-container">
+                <div class="card" data-click-count="0">
+                    <img src="{{ dog.imageURL }}" class="card-img-top" alt="{{ dog.name }}"
+                         style="width: 350px; height: 400px;">
+                    <div class="card-info">
+                        <h5 class="card-price">INR {{ dog.price }}</h5>
+                        <p>Age: {{ dog.age }}</p>
+                        <p>Height: {{ dog.height }}</p>
+                        <p>Life Expectancy: {{ dog.life_expectancy }} years</p>
+                        <p class="card-click-count">Clicks Count: 0</p>
+
+                        <form class="text-center border border-light p-5">
+                                <button id="rzp-button" class="btn btn-primary">Pay with Razorpay</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                        <script>
+                            var options = {
+                                "key": "rzp_test_hntieMJ65xzBmL",
+                                "amount": 50000, // Amount in paise (e.g., 50000 paise = ₹500)
+                                "currency": "INR",
+                                "name": "L.A.G PetMania",
+                                "description": "Nice Choice",
+                                "image": "https://example.com/your_logo.jpg",
+                                "prefill": {
+                                    "name": "{{ user.username }}",
+                                    "email": "{{ user.email }}"
+                                },
+                                "theme": {
+                                    "color": "#F37254"
+                                }
+                            };
+
+                            var rzp = new Razorpay(options);
+
+                            document.getElementById('rzp-button').onclick = function (e) {
+                                rzp.open();
+                                e.preventDefault();
+                            }
+                        </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Add a click event listener to each card
+        const cards = document.querySelectorAll(".card");
+        cards.forEach(card => {
+            let clickCount = 0;
+            const clickCountElement = card.querySelector(".card-click-count");
+            card.addEventListener("click", () => {
+                clickCount++;
+                clickCountElement.textContent = `Clicks: ${clickCount}`;
+            });
+        });
+    });
+</script>
+
+
+<div class="pagination-container">
+    <div class="pagination">
+        <span class="step-links">
+            {% if prop.has_previous %}
+                <a href="?page=1">First</a>
+                <a href="?page={{ prop.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="current-page">{{ prop.number }}</span>
+            {% if prop.has_next %}
+                <a href="?page={{ prop.next_page_number }}">next</a>
+                <a href="?page={{ prop.paginator.num_pages }}">Last</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

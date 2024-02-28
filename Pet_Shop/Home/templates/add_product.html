@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    /* Define your CSS styles here */
+    h2 {
+      color: #333;
+      font-size: 24px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+
+  <h2>Add a Product</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+{% endblock content %}

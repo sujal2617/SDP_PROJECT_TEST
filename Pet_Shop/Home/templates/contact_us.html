@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Contact Section -->
+<section id="contact" class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="contact-form p-4">
+                    <h2 class="text-center mb-4">Contact Us</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+                    <div class="mt-4 text-center">
+                        <h3>Follow Us</h3>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-social btn-twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-social btn-facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn btn-social btn-youtube">
+                                    <i class="fa fa-youtube-play"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Additional custom styles */
+    .contact-form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-social {
+        font-size: 24px;
+        margin: 0 10px;
+        color: #fff;
+    }
+
+    .btn-twitter {
+        background-color: #55acee;
+    }
+
+    .btn-twitter:hover {
+        background-color: #2795e9; /* Change the color on hover */
+    }
+
+    .btn-facebook {
+        background-color: #3b5998;
+    }
+
+    .btn-facebook:hover {
+        background-color: #2c4a88; /* Change the color on hover */
+    }
+
+    .btn-youtube {
+        background-color: #cd201f;
+    }
+
+    .btn-youtube:hover {
+        background-color: #a31510; /* Change the color on hover */
+    }
+
+    /* Style the form input fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+        border-color: #007bff; /* Highlight the input on focus */
+    }
+
+</style>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* Add your CSS styles here */
+    .privacy-page {
+        font-family: 'Lato', sans-serif;
+        background-color: #f8f8f8;
+        padding: 20px;
+    }
+
+    .privacy-container {
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .privacy-heading {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .privacy-content {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Add more specific classes and styles as needed */
+</style>
+
+<div class="privacy-page my-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <h1 class="privacy-heading">Privacy Policy</h1>
+
+            <div class="privacy-container">
+                <div class="privacy-content">
+                    <p>Your privacy is important to us. It is L.A.G Pet Adoption and Accessories Management System's
+                        policy to respect your privacy regarding any information we may collect from you across our
+                        website.</p>
+
+                    <h2>Information We Collect</h2>
+                    <p>We collect information you provide directly to us, such as your name, email address, and other
+                        contact details. We may also collect information about your use of our website, including
+                        browsing behavior and usage patterns.</p>
+
+                    <h2>How We Use Your Information</h2>
+                    <p>We may use your personal information to:</p>
+                    <ul>
+                        <li>Provide, maintain, and improve our services.</li>
+                        <li>Send you important notices, such as updates or changes to our terms, policies, or
+                            services.
+                        </li>
+                        <li>Respond to your inquiries, comments, or questions.</li>
+                        <li>Monitor and analyze usage patterns and trends.</li>
+                    </ul>
+
+                    <h2>Third-Party Services</h2>
+                    <p>We may use third-party services to help us operate our website and provide services to you. These
+                        third-party services may collect and process your information on our behalf in accordance with
+                        their privacy policies.</p>
+
+                    <h2>Security</h2>
+                    <p>We take reasonable measures to protect your personal information. However, no method of
+                        transmission over the internet or electronic storage is completely secure, and we cannot
+                        guarantee the absolute security of your data.</p>
+
+                    <h2>Changes to Privacy Policy</h2>
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting
+                        the new Privacy Policy on this page.</p>
+
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions or concerns regarding our Privacy Policy, please <a
+                            href="{% url 'contact' %}">contact us</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Log In</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <!-- Username field -->
+                        <div class="form-group">
+                            <label for="{{ form.username.id_for_label }}">Username:</label>
+                            {{ form.username }}
+                        </div>
+
+                        <!-- Password field -->
+                        <div class="form-group">
+                            <label for="{{ form.password.id_for_label }}">Password:</label>
+                            {{ form.password }}
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="form-group text-center">
+                            <button class="btn btn-info btn-block" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <small class="text-muted">Need an account? <a href="{% url 'register' %}" class="text-info">Sign Up Now</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add some custom styles here */
+    .card {
+        border: none;
+    }
+
+    .card-header {
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 79%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    .btn-info {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-info:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .text-muted a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .text-muted a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+{% endblock content %}

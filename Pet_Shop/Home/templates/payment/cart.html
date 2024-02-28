@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Cart</h1>
+<ul>
+    {% for item in cart_items %}
+    <li>
+        {{ item.product.name }} - Quantity: {{ item.quantity }} - Price: INR {{ item.product.price }}
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /* Add your custom CSS styles here */
+    .responsive-container-block {
+        min-height: 75px;
+        height: fit-content;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0;
+        margin-right: auto;
+        margin-bottom: 0;
+        margin-left: auto;
+        justify-content: flex-start;
+    }
+
+    .responsive-container-block.Container {
+        max-width: 800px;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        margin-top: 150px;
+        margin-right: auto;
+        margin-bottom: 150px;
+        margin-left: auto;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .text-blk.heading {
+        font-size: 36px;
+        line-height: 45px;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        color: #000;
+    }
+
+    .text-blk.subHeading {
+        text-align: center;
+        font-size: 18px;
+        line-height: 26px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .socialIcon {
+        width: 33px;
+        height: 33px;
+    }
+
+    .social-icons-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .social-icon {
+        margin: 0 50px 0 50px;
+    }
+
+    .social-icon:hover {
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .text-blk.heading {
+            font-size: 55px;
+            line-height: 65px;
+        }
+
+        .text-blk.subHeading {
+            font-size: 18px;
+            line-height: 24px;
+        }
+
+        .socialIcon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .text-blk.subHeading {
+            line-height: 27px;
+        }
+
+        .text-blk.heading {
+            font-size: 32px;
+            line-height: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .social-icon {
+            margin: 0 25px 0 25px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .responsive-container-block.Container {
+            padding: 10px;
+        }
+
+        .text-blk.heading {
+            font-size: 45px;
+            line-height: 55px;
+        }
+
+        .text-blk.subHeading {
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        .social-icons-container {
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-blk.subHeading {
+            font-size: 16px;
+            line-height: 23px;
+        }
+
+        .text-blk.heading {
+            font-size: 26px;
+            line-height: 30px;
+        }
+
+        .social-icon {
+            margin: 0 20px 0 20px;
+        }
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="responsive-container-block Container">
+                <p class="text-blk heading">
+                    About Us
+                </p>
+                <p class="text-blk subHeading">
+                    Welcome to PetShop - your one-stop destination for finding loving homes for adorable pets.
+                    Our mission is to connect you with furry friends who are looking for a forever home.
+                    Whether you're looking to adopt a loyal dog, a playful cat, or a cute rabbit,
+                    we have a wide range of pets waiting for you.
+                </p><br>
+                <div class="social-icons-container">
+                    <a class="social-icon">
+                        <img class="socialIcon image-block"
+                             src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb33.png">
+                    </a>
+                    <a class="social-icon">
+                        <img class="socialIcon image-block"
+                             src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb34.png">
+                    </a>
+                    <a class="social-icon">
+                        <img class="socialIcon image-block"
+                             src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb35.png">
+                    </a>
+                    <a class="social-icon">
+                        <img class="socialIcon image-block"
+                             src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb36.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
